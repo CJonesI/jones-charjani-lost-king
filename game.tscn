@@ -3,12 +3,12 @@
 [node name="Game" type="Node3D" unique_id=1413464218]
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1224146911]
-transform = Transform3D(-0.039364483, 0, 0.9992249, 0, 1, 0, -0.9992249, 0, -0.039364483, 10.72666, 2.5803514, 22.833328)
-size = Vector3(8.026611, 6.3148804, 5.930786)
+transform = Transform3D(-0.016300684, 0, 0.9998672, 0, 1, 0, -0.9998672, 0, -0.016300684, 0.6992912, 0.025755405, 126.63038)
+size = Vector3(8.026611, 2.4508972, 44.239883)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1367289966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0853434, 2, 2.5)
-size = Vector3(6, 5, 6)
+transform = Transform3D(0.007400181, 0, -0.9999727, 0, 1, 0, 0.9999727, 0, 0.007400181, 56.21643, 44.50084, 54.029816)
+size = Vector3(110.205444, 60.115723, 0.74316406)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=2117195562]
 transform = Transform3D(0.96757704, 0, 0.25257602, 0, 1, 0, -0.25257602, 0, 0.96757704, 0, 4.1538134, 58)
@@ -35,3 +35,6 @@ height = 5.0
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGSphere3D" unique_id=495849569]
 transform = Transform3D(0.96757704, 0, -0.25257602, 0, 1, 0, 0.25257602, 0, 0.96757704, -3.8146973e-06, -5.1538134, 0)
 size = Vector3(7, 1, 5)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1243439782]
+transform = Transform3D(-0.8799804, 0, -0.47501007, 0, 1, 0, 0.47501007, 0, -0.8799804, -1.2380877, 0, 21.328873)
