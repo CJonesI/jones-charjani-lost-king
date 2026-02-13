@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="JonesCharjani_LostKing"
+run/main_scene="uid://rv3t2jr3f8h6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
