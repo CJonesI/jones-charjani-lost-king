@@ -1,40 +1,196 @@
 [gd_scene format=3 uid="uid://rv3t2jr3f8h6"]
 
+[ext_resource type="PackedScene" uid="uid://xxwi63d0cqlk" path="res://Scene/controller.tscn" id="1_80nbo"]
+
 [node name="Game" type="Node3D" unique_id=1413464218]
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1224146911]
-transform = Transform3D(-0.016300684, 0, 0.9998672, 0, 1, 0, -0.9998672, 0, -0.016300684, 0.6992912, 0.025755405, 126.63038)
+[node name="controller" parent="." unique_id=2083115566 instance=ExtResource("1_80nbo")]
+transform = Transform3D(-0.9876802, 0, -0.15648624, 0, 1, 0, 0.15648624, 0, -0.9876802, 16.243313, 4.6408386, 14.8753395)
+
+[node name="Setting" type="Node3D" parent="." unique_id=1581947884]
+transform = Transform3D(-0.8799804, 0, -0.47501007, 0, 1, 0, 0.47501007, 0, -0.8799804, -1.2380877, 0, 16.824776)
+
+[node name="Center Piece" type="CSGSphere3D" parent="Setting" unique_id=2117195562]
+transform = Transform3D(-0.97132987, 0.013796365, 0.23733516, 0.011878874, 0.9998841, -0.009507489, -0.23743887, -0.006415634, -0.9713812, 18.40973, 4.495744, -36.84699)
+radius = 3.856524
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="Setting/Center Piece" unique_id=1430711676]
+transform = Transform3D(1, -4.656613e-10, 1.4901161e-08, 2.3283064e-09, 1, 0, -1.4901161e-08, 1.8626451e-09, 1, 0.010763168, 3.906003, -0.008609772)
+inner_radius = 1.3099447
+outer_radius = 1.826246
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Setting/Center Piece" unique_id=2013277005]
+transform = Transform3D(0.8745725, -0.4837886, -0.03274159, 0.48378855, 0.86602545, 0.12628803, -0.032741606, -0.12628801, 0.99145305, -0.008341789, -0.26556826, 0.006679535)
+inner_radius = 4.9714274
+outer_radius = 5.867351
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="Setting/Center Piece" unique_id=954586174]
+transform = Transform3D(0.87457234, 0.48378852, -0.03274162, -0.48378855, 0.86602545, -0.12628803, -0.032741606, 0.126288, 0.9914531, -0.008342743, -0.7022171, 0.006679535)
+inner_radius = 4.3960633
+outer_radius = 5.2442183
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Setting/Center Piece" unique_id=1850753676]
+transform = Transform3D(1, 0, 1.4901161e-08, 2.0954758e-08, 1, 0, -1.4901161e-08, 1.4901161e-08, 1, -0.008342743, -2.715401, 0.006679535)
+radius = 1.0
+height = 5.973633
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Setting/Center Piece" unique_id=495849569]
+transform = Transform3D(0.9675771, -2.3283064e-10, -0.25257602, 7.0770056e-10, 1, -9.313226e-10, 0.252576, 9.313226e-10, 0.9675771, -0.034831047, -5.856031, 0.35172272)
+size = Vector3(7.7539063, 1, 8.451355)
+
+[node name="Stairs" type="CSGBox3D" parent="Setting" unique_id=1224146911]
+transform = Transform3D(-0.4606027, 6.146592e-10, -0.8876065, -9.313226e-10, 1, 2.3283064e-10, 0.8876065, 3.317907e-10, -0.4606027, 50.865814, -0.56426287, -97.08794)
 size = Vector3(8.026611, 2.4508972, 44.239883)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1367289966]
-transform = Transform3D(0.007400181, 0, -0.9999727, 0, 1, 0, 0.9999727, 0, 0.007400181, 56.21643, 44.50084, 54.029816)
-size = Vector3(110.205444, 60.115723, 0.74316406)
+[node name="CSGBox3D2" type="CSGBox3D" parent="Setting/Stairs" unique_id=1494823492]
+transform = Transform3D(0.9927252, 0.10635241, -0.05645735, -0.10883063, 0.9931384, -0.042798452, 0.05151821, 0.04863138, 0.99748737, -12.644386, 5.4072576, -1.6825124)
+size = Vector3(5.487854, 1, 18.550903)
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=2117195562]
-transform = Transform3D(0.96757704, 0, 0.25257602, 0, 1, 0, -0.25257602, 0, 0.96757704, 0, 4.1538134, 58)
-radius = 3.0
+[node name="CSGBox3D" type="CSGBox3D" parent="Setting/Stairs" unique_id=2117553247]
+transform = Transform3D(0.9988735, 0.008441433, -0.046700798, -0.009710954, 0.9995875, -0.027024403, 0.046453387, 0.027447466, 0.998543, -6.802849, 3.0900698, -0.8941914)
+size = Vector3(5.487854, 1, 18.550903)
 
-[node name="CSGTorus3D3" type="CSGTorus3D" parent="CSGSphere3D" unique_id=1430711676]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+[node name="CSGBox3D3" type="CSGBox3D" parent="Setting/Stairs" unique_id=721055235]
+transform = Transform3D(0.99654067, 0.07648, -0.03253019, -0.077199034, 0.9967848, -0.021453338, 0.030784853, 0.02389041, 0.9992404, -18.857094, 7.299201, -1.0907096)
+size = Vector3(5.487854, 1, 18.550903)
 
-[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGSphere3D" unique_id=2013277005]
-transform = Transform3D(0.87457234, -0.48378852, -0.032741606, 0.48378852, 0.8660254, 0.12628801, -0.032741606, -0.12628801, 0.99145305, 0, 0, 0)
-inner_radius = 4.0
-outer_radius = 5.0
+[node name="CSGBox3D4" type="CSGBox3D" parent="Setting/Stairs" unique_id=123380063]
+transform = Transform3D(0.99694437, 0.07691785, -0.013638033, -0.07719905, 0.9967848, -0.021453334, 0.011943934, 0.022440601, 0.9996768, -24.937866, 9.245705, -1.2999737)
+size = Vector3(5.487854, 1, 18.550903)
 
-[node name="CSGTorus3D2" type="CSGTorus3D" parent="CSGSphere3D" unique_id=954586174]
-transform = Transform3D(0.87457234, 0.48378852, -0.032741606, -0.48378852, 0.8660254, -0.12628801, -0.032741606, 0.12628801, 0.99145305, 0, 0, 0)
-inner_radius = 4.0
-outer_radius = 5.0
+[node name="CSGBox3D5" type="CSGBox3D" parent="Setting/Stairs" unique_id=1395550316]
+transform = Transform3D(0.9970145, 0.07721584, -4.5379624e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -31.553757, 10.853162, -1.2977009)
+size = Vector3(5.487854, 1, 18.550903)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGSphere3D" unique_id=1850753676]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4999998, 0)
-radius = 1.0
-height = 5.0
+[node name="CSGBox3D6" type="CSGBox3D" parent="Setting/Stairs" unique_id=1683599710]
+transform = Transform3D(0.9970145, 0.07721584, -4.53759e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -37.897263, 12.601901, -1.4011192)
+size = Vector3(5.487854, 1, 18.550903)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGSphere3D" unique_id=495849569]
-transform = Transform3D(0.96757704, 0, -0.25257602, 0, 1, 0, 0.25257602, 0, 0.96757704, -3.8146973e-06, -5.1538134, 0)
-size = Vector3(7, 1, 5)
+[node name="CSGBox3D7" type="CSGBox3D" parent="Setting/Stairs" unique_id=1581017819]
+transform = Transform3D(0.9970145, 0.07721584, -4.5374036e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -43.539917, 14.599399, -1.4931104)
+size = Vector3(5.487854, 1, 18.550903)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1243439782]
-transform = Transform3D(-0.8799804, 0, -0.47501007, 0, 1, 0, 0.47501007, 0, -0.8799804, -1.2380877, 0, 21.328873)
+[node name="CSGBox3D8" type="CSGBox3D" parent="Setting/Stairs" unique_id=850663953]
+transform = Transform3D(0.9970145, 0.07721584, -4.5372173e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -49.283585, 16.551363, -1.5867486)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Setting/Stairs" unique_id=270320737]
+transform = Transform3D(0.9970145, 0.07721584, -4.53759e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -54.670074, 19.212423, -1.6745639)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Setting/Stairs" unique_id=632712716]
+transform = Transform3D(0.9970145, 0.07721584, -4.5381486e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -60.381912, 21.680962, -1.767683)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Setting/Stairs" unique_id=1847181052]
+transform = Transform3D(0.9970145, 0.07721584, -4.537776e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -66.403534, 24.260933, -1.8658524)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Setting/Stairs" unique_id=2069062384]
+transform = Transform3D(0.9970145, 0.07721584, -4.53759e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -72.78088, 26.347824, -1.9698212)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Setting/Stairs" unique_id=1237468045]
+transform = Transform3D(0.9970145, 0.07721584, -4.53759e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -78.84935, 28.563725, -2.0687542)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Setting/Stairs" unique_id=1653705744]
+transform = Transform3D(0.9970145, 0.07721584, -4.538335e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -85.27638, 30.357931, -2.173533)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Setting/Stairs" unique_id=1472722275]
+transform = Transform3D(0.9970145, 0.07721584, -4.537776e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -91.85596, 32.252613, -2.2807994)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Setting/Stairs" unique_id=1467841465]
+transform = Transform3D(0.9970145, 0.07721584, -4.53759e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -98.40015, 33.99688, -2.3874888)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Setting/Stairs" unique_id=1165244850]
+transform = Transform3D(0.9970145, 0.07721584, -4.537776e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -104.81555, 35.72933, -2.4920778)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Setting/Stairs" unique_id=923672472]
+transform = Transform3D(0.9970145, 0.07721584, -4.538335e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -110.98239, 37.472023, -2.5926147)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Setting/Stairs" unique_id=1208584226]
+transform = Transform3D(0.9970145, 0.07721584, -4.53759e-05, -0.07719905, 0.9967848, -0.021453334, -0.0016113296, 0.021392783, 0.9997697, -116.5737, 39.661667, -2.6837687)
+size = Vector3(5.487854, 1, 18.550903)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Setting/Stairs" unique_id=1816488540]
+transform = Transform3D(0.9996893, 0.010208605, -0.023566253, -0.010383006, 0.99991953, -0.007291435, 0.02349103, 0.007533525, 0.9996973, -185.17665, 41.59968, 18.36403)
+size = Vector3(130.36795, 1, 372.9478)
+
+[node name="Floor And Walls" type="CSGBox3D" parent="Setting" unique_id=1367289966]
+transform = Transform3D(0.48567954, 0, 0.874137, 0, 1, 0, -0.874137, 0, 0.48567954, 66.113754, -1.4314117, -162.6582)
+size = Vector3(371.9723, 0.001, 389.9016)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Setting/Floor And Walls" unique_id=2041020787]
+transform = Transform3D(0.99862105, 0.05744757, -0.0016341442, -0.057450905, 0.9985085, -0.0009656623, 0.001583593, 0.0010522462, 1.0000534, 12.671555, 43.011208, 195.19655)
+size = Vector3(365, 121, 9)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Setting/Floor And Walls" unique_id=1170903180]
+transform = Transform3D(-0.9991075, -0.029715287, -0.0342774, 0.027751302, -0.99810034, 0.056449935, -0.035886932, 0.055431116, 0.99784464, 6.200943, 45.52827, -199.24512)
+size = Vector3(365, 121, 9)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Setting/Floor And Walls" unique_id=495852706]
+transform = Transform3D(-0.014061369, 0.9988579, -0.04578354, -0.9998621, -0.013581317, 0.010821879, 0.0101880925, 0.04592886, 0.99889386, 186.07755, 59.385326, -2.7490902)
+size = Vector3(116.4978, 0.001, 390.57455)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=1694129507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.02539, 24.894344, -178.51605)
+radius = 3.6416016
+height = 50.39332
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=835389375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.12033, 25.14434, -178.66371)
+radius = 3.6416016
+height = 50.39332
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=314207896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.46187, 24.894344, -179.82462)
+radius = 3.6416016
+height = 50.39332
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=1164064303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.765015, 24.894344, -180.50864)
+radius = 3.6416016
+height = 50.39332
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=84882116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.0856, 24.894344, 158.67899)
+radius = 3.6416016
+height = 50.39332
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=1978083308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.23964, 24.894344, 157.32788)
+radius = 3.6416016
+height = 50.39332
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=789819529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.744461, 24.894344, 159.7247)
+radius = 3.6416016
+height = 50.39332
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=1825889553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.633347, 24.894344, 158.52414)
+radius = 3.6416016
+height = 50.39332
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Setting" unique_id=1804545452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.06535, 52, -190.93779)
+size = Vector3(25, 21, 19)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Setting" unique_id=1418421590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3505306, 49.5, -293.80624)
+size = Vector3(17, 16, 22)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Setting" unique_id=934480039]
+transform = Transform3D(-0.8799804, 1.5608157e-08, 0.47501007, 2.9802322e-08, 1, 2.2351742e-08, -0.47501007, 3.3825497e-08, -0.8799804, 18.537306, 0, -36.94777)
+light_energy = 8.839
+shadow_enabled = true
+shadow_bias = 1.148
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Setting" unique_id=1698686760]
+transform = Transform3D(-0.033608794, 0.22351788, -0.97412026, -0.6391912, 0.7444686, 0.19287606, 0.7683132, 0.6291314, 0.117850006, 18.537312, 144.34021, -36.947758)
