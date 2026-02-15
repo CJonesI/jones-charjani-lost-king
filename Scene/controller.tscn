@@ -13,11 +13,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9517703, 0.021089435, 0.05
 script = ExtResource("2_t6uff")
 can_sprint = true
 can_freefly = true
-input_left = "move_left"
-input_right = "move_right"
-input_forward = "move_up"
-input_back = "move_down"
-input_jump = "jump"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ProtoController" unique_id=1277253289]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.833089, 0)
