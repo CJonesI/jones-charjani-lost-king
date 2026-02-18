@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://rv3t2jr3f8h6"]
 
-[ext_resource type="PackedScene" uid="uid://xxwi63d0cqlk" path="res://Scene/controller.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bum51ikm85jqf" path="res://Addons/brackeys-proto-controller-main/proto_controller/proto_controller.gd" id="2_e2o6t"]
 
 [node name="Game" type="Node3D" unique_id=1413464218]
 
-[node name="controller" parent="." unique_id=2083115566 instance=ExtResource("1_80nbo")]
-transform = Transform3D(-0.96592563, 0, 0.2588189, 0, 1, 0, -0.2588189, 0, -0.96592563, 1, -1, 15)
+[node name="ProtoController" parent="." unique_id=423990970 instance=ExtResource("1_80nbo")]
+transform = Transform3D(-0.99999994, 0, 1.1920929e-07, 0, 1, 0, -1.1920929e-07, 0, -0.99999994, -1, 1, 17)
+script = ExtResource("2_e2o6t")
+can_sprint = true
 
 [node name="Setting" type="Node3D" parent="." unique_id=1581947884]
 transform = Transform3D(-0.8799804, 0, -0.47501007, 0, 1, 0, 0.47501007, 0, -0.8799804, -1.2380877, 0, 16.824776)
@@ -39,15 +42,16 @@ transform = Transform3D(0.9675771, -2.3283064e-10, -0.25257602, 7.0770056e-10, 1
 size = Vector3(7.7539063, 1, 8.451355)
 
 [node name="Stairs" type="CSGBox3D" parent="Setting" unique_id=1224146911]
-transform = Transform3D(-0.4606027, 6.146592e-10, -0.8876065, -9.313226e-10, 1, 2.3283064e-10, 0.8876065, 3.317907e-10, -0.4606027, 50.865814, -0.56426287, -97.08794)
-size = Vector3(8.026611, 2.4508972, 44.239883)
+transform = Transform3D(-0.46060267, 6.1465943e-10, -0.8876065, -9.313226e-10, 1, 2.3283064e-10, 0.8876065, 3.3179087e-10, -0.46060267, 50.865814, -1.2897115, -97.08794)
+use_collision = true
+size = Vector3(8.026611, 1, 44.239883)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Setting/Stairs" unique_id=1494823492]
-transform = Transform3D(0.9927252, 0.10635241, -0.05645735, -0.10883063, 0.9931384, -0.042798452, 0.05151821, 0.04863138, 0.9974874, -9.644798, 5.4072576, -1.6336102)
+transform = Transform3D(0.9927252, 0.10635241, -0.05645735, -0.10883063, 0.9931384, -0.042798452, 0.05151821, 0.04863138, 0.99748874, -9.644829, 5.4072576, -1.6336102)
 size = Vector3(5.487854, 1, 18.550903)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Setting/Stairs" unique_id=2117553247]
-transform = Transform3D(0.9988735, 0.008441433, -0.046700798, -0.009710954, 0.9995875, -0.027024403, 0.046453387, 0.027447464, 0.998543, -4.8031235, 3.0900698, -0.86159015)
+transform = Transform3D(0.9988735, 0.00844145, -0.046700798, -0.009710954, 0.9995875, -0.027024403, 0.046453387, 0.027447354, 0.998543, -4.8031235, 3.0900698, -0.86158967)
 size = Vector3(5.487854, 1, 18.550903)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Setting/Stairs" unique_id=721055235]
