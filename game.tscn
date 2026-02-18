@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://rv3t2jr3f8h6"]
 
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://bum51ikm85jqf" path="res://Addons/brackeys-proto-controller-main/proto_controller/proto_controller.gd" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Addons/proto_controller/proto_controller.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bum51ikm85jqf" path="res://Addons/proto_controller/proto_controller.gd" id="2_e2o6t"]
 
 [node name="Game" type="Node3D" unique_id=1413464218]
 
 [node name="ProtoController" parent="." unique_id=423990970 instance=ExtResource("1_80nbo")]
-transform = Transform3D(-0.99999994, 0, 1.1920929e-07, 0, 1, 0, -1.1920929e-07, 0, -0.99999994, -1, 1, 17)
+transform = Transform3D(-0.99999994, 0, 1.1920929e-07, 0, 1, 0, -1.1920929e-07, 0, -0.99999994, -1, 0, 17)
 script = ExtResource("2_e2o6t")
 can_sprint = true
+base_speed = 10.0
 
 [node name="Setting" type="Node3D" parent="." unique_id=1581947884]
 transform = Transform3D(-0.8799804, 0, -0.47501007, 0, 1, 0, 0.47501007, 0, -0.8799804, -1.2380877, 0, 16.824776)
@@ -136,31 +137,32 @@ transform = Transform3D(0.99862105, 0.05744757, -0.0016341442, -0.057450905, 0.9
 size = Vector3(365, 121, 9)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Setting/Floor And Walls" unique_id=1170903180]
-transform = Transform3D(-0.9991075, -0.029715287, -0.0342774, 0.027751302, -0.99810034, 0.056449935, -0.035886932, 0.055431116, 0.99784464, 6.200943, 45.52827, -199.24512)
-size = Vector3(365, 121, 9)
+transform = Transform3D(-0.9991087, -0.029715287, -0.034277473, 0.027751302, -0.99810034, 0.056449935, -0.035886936, 0.055431116, 0.99784464, 6.4089203, 52.514973, -199.63315)
+size = Vector3(365, 135, 9)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Setting/Floor And Walls" unique_id=495852706]
 transform = Transform3D(-0.014061369, 0.9988579, -0.04578354, -0.9998621, -0.013581317, 0.010821879, 0.0101880925, 0.04592886, 0.99889386, 186.07755, 59.385326, -2.7490902)
 size = Vector3(116.4978, 0.001, 390.57455)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=1694129507]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.02539, 24.894344, -178.51605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.23221, 24.894344, -195.51482)
 radius = 3.6416016
 height = 50.39332
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=835389375]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.12033, 25.14434, -178.66371)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.30281, 25.14434, -193.66261)
 radius = 3.6416016
 height = 50.39332
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=314207896]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.46187, 24.894344, -179.82462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.62004, 24.894344, -192.82367)
 radius = 3.6416016
 height = 50.39332
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=1164064303]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.765015, 24.894344, -180.50864)
-radius = 3.6416016
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.61937, 24.894344, -192.44704)
+operation = 2
+radius = 23.0
 height = 50.39332
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Setting/Floor And Walls" unique_id=84882116]
@@ -192,10 +194,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3505306, 49.5, -293.80624)
 size = Vector3(17, 16, 22)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Setting" unique_id=934480039]
-transform = Transform3D(-0.8799804, 1.5608157e-08, 0.47501007, 2.9802322e-08, 1, 2.2351742e-08, -0.47501007, 3.3825497e-08, -0.8799804, 18.537306, 0, -36.94777)
+transform = Transform3D(-0.8799804, 1.5608157e-08, 0.47501007, 2.9802322e-08, 1, 2.2351742e-08, -0.47501007, 3.3825497e-08, -0.8799804, 18.537306, 5, -36.94777)
 light_energy = 8.839
 shadow_enabled = true
 shadow_bias = 1.148
+spot_angle = 39.374996
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Setting" unique_id=1698686760]
 transform = Transform3D(-0.033608794, 0.22351788, -0.97412026, -0.6391912, 0.7444686, 0.19287606, 0.7683132, 0.6291314, 0.117850006, 18.537312, 144.34021, -36.947758)
