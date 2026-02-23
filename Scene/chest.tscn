@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cfibg6b2fkugj"]
+
+[ext_resource type="PackedScene" uid="uid://bdmj5fpt7ighx" path="res://Addons/brackeys_3d_game_assets/import_examples/chest_gold/chest_gold.glb" id="1_if2wm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gw8v6"]
+
+[node name="Chest" type="StaticBody3D" unique_id=461915953]
+
+[node name="chest_gold2" parent="." unique_id=1507641907 instance=ExtResource("1_if2wm")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=865028481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_gw8v6")
