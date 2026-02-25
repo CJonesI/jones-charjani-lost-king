@@ -8,7 +8,6 @@ size = Vector3(118.34601, 1, 119.99274)
 [node name="wood floor" type="StaticBody3D" unique_id=1039500635]
 
 [node name="floor_wood" parent="." unique_id=386665837 instance=ExtResource("1_udj0j")]
-transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=105488341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12887573, 0, -0.04916382)

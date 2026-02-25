@@ -8,7 +8,6 @@ size = Vector3(198.93051, 1, 197.64006)
 [node name="Celiling" type="StaticBody3D" unique_id=1970425385]
 
 [node name="ceiling" parent="." unique_id=464936784 instance=ExtResource("1_27nxj")]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1994562739]
 transform = Transform3D(0.99999857, 0.0010975897, -0.0012727785, -0.0010948691, 0.99999714, 0.0021427716, 0.0012751196, -0.0021413793, 0.9999969, 0.809225, -0.00385084, -1.3816681)
