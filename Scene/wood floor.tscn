@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://drdisvdpigwqu" path="res://Addons/brackeys_3d_game_assets/dungeon_assets/building/floor_wood.glb" id="1_udj0j"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vvtg1"]
-size = Vector3(118.34601, 1, 119.99274)
+[sub_resource type="BoxShape3D" id="BoxShape3D_udj0j"]
+size = Vector3(3.91568, 0.28955078, 3.6029663)
 
 [node name="wood floor" type="StaticBody3D" unique_id=1039500635]
 
 [node name="floor_wood" parent="." unique_id=386665837 instance=ExtResource("1_udj0j")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=105488341]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12887573, 0, -0.04916382)
-shape = SubResource("BoxShape3D_vvtg1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.053482056, -0.08520508, -0.113464355)
+shape = SubResource("BoxShape3D_udj0j")
 debug_color = Color(0.46471667, 0.57385296, 0.4202415, 0.41960785)
