@@ -3,10 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://b4wyrusoaxt75" path="res://Addons/brackeys_3d_game_assets/dungeon_assets/building/pillar.glb" id="1_af1hm"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ysgne"]
+height = 3.9365234
+radius = 0.6123047
 
 [node name="Pillar" type="StaticBody3D" unique_id=1133037364]
 
 [node name="pillar2" parent="." unique_id=1075235635 instance=ExtResource("1_af1hm")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1737659952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0953753, 0)
 shape = SubResource("CylinderShape3D_ysgne")
