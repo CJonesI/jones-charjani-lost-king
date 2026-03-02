@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://x4twh3nc1nnk" path="res://Scene/wall.tscn" id="7_eow3j"]
 [ext_resource type="PackedScene" uid="uid://c4sxj7177n1d3" path="res://Scene/shelved_wall.tscn" id="10_hve3p"]
 [ext_resource type="PackedScene" uid="uid://dngtd4beesx6j" path="res://Scene/keg.tscn" id="13_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://b4m1jk3gir8mj" path="res://Addons/sword.glb" id="14_215e1"]
 
 [node name="Game" type="Node3D" unique_id=1413464218]
 
@@ -76,6 +77,7 @@ light_energy = 4.789
 omni_range = 9.324285
 
 [node name="Map" type="CSGCombiner3D" parent="Setting" unique_id=423185559]
+visible = false
 transparency = 0.57
 
 [node name="Floor" type="CSGBox3D" parent="Setting/Map" unique_id=735470566]
@@ -11371,9 +11373,6 @@ transform = Transform3D(0.48322138, 0, 0.87549824, 0, 1, 0, -0.87549824, 0, 0.48
 [node name="Corner Wall35" parent="Setting/Pub" unique_id=839062866 instance=ExtResource("6_ryrav")]
 transform = Transform3D(0.48322156, 0, 0.87549853, 0, 1, 0, -0.87549853, 0, 0.48322156, 100.7052, 10, -102.241585)
 
-[node name="Corner Wall36" parent="Setting/Pub" unique_id=128593618 instance=ExtResource("6_ryrav")]
-transform = Transform3D(0.69335175, 0, 0.72059953, 0, 1, 0, -0.72059953, 0, 0.69335175, -67.455826, 14, 202.43181)
-
 [node name="Wall807" parent="Setting/Pub" unique_id=1956205297 instance=ExtResource("7_eow3j")]
 transform = Transform3D(-0.5, 0, -0.8660255, 0, 1, 0, 0.8660255, 0, -0.5, 130.34807, -2, -62.44821)
 
@@ -11977,11 +11976,17 @@ transform = Transform3D(0.8754983, 0, -0.48322123, 0, 1, 0, 0.48322123, 0, 0.875
 [node name="Chair6" parent="Setting/Pub" unique_id=1108507159 instance=ExtResource("5_lc2xo")]
 transform = Transform3D(0.8754983, 0, -0.48322123, 0, 1, 0, 0.48322123, 0, 0.8754983, 92.84877, -1, -63.174004)
 
-[node name="Keg" parent="Setting" unique_id=1256580775 instance=ExtResource("13_lc2xo")]
+[node name="Keg" parent="Setting/Pub" unique_id=1256580775 instance=ExtResource("13_lc2xo")]
 transform = Transform3D(0.8754983, 0, -0.48322123, 0, 1, 0, 0.48322123, 0, 0.8754983, 136.02647, -1, -79.319786)
 
-[node name="Keg2" parent="Setting" unique_id=1024590561 instance=ExtResource("13_lc2xo")]
-transform = Transform3D(0.8754983, 0, -0.48322123, 0, 1, 0, 0.48322123, 0, 0.8754983, 132.52449, -1, -81.25267)
+[node name="Keg2" parent="Setting/Pub" unique_id=1024590561 instance=ExtResource("13_lc2xo")]
+transform = Transform3D(0.8754983, 0, -0.48322123, 0, 1, 0, 0.48322123, 0, 0.8754983, 132.52449, -1, -81.25266)
 
-[node name="Keg3" parent="Setting" unique_id=1890942919 instance=ExtResource("13_lc2xo")]
-transform = Transform3D(0.8754983, 0, -0.48322123, 0, 1, 0, 0.48322123, 0, 0.8754983, 129.0225, -1, -83.18555)
+[node name="Keg3" parent="Setting/Pub" unique_id=1890942919 instance=ExtResource("13_lc2xo")]
+transform = Transform3D(0.8754983, 0, -0.48322123, 0, 1, 0, 0.48322123, 0, 0.8754983, 129.0225, -1, -83.18554)
+
+[node name="sword" parent="Setting" unique_id=2111783375 instance=ExtResource("14_215e1")]
+transform = Transform3D(0.61907077, -0.61907065, 0.4832215, -0.7071067, -0.70710677, 0, 0.34168914, -0.34168908, -0.8754985, 79.74479, 2, -60.12674)
+
+[node name="sword2" parent="Setting" unique_id=1532995290 instance=ExtResource("14_215e1")]
+transform = Transform3D(-0.6933518, -0.7205996, 9.400897e-09, 0, -4.371139e-08, -1, 0.7205996, -0.6933518, 9.045424e-09, 82.09845, -1.4353197, -51.974403)
