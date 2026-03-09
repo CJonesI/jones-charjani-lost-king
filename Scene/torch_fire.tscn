@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cy737514jf7ha"]
+
+[ext_resource type="Texture2D" uid="uid://bgtxacaa7ykmd" path="res://Addons/brackeys_vfx_bundle/particles/alpha/smoke_06_a.png" id="1_r0g4i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4yuc"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_r0g4i")
+emission_enabled = true
+emission = Color(1, 0.7412816, 0.13687286, 1)
+emission_energy_multiplier = 1.23
+billboard_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_2cqlp"]
+offsets = PackedFloat32Array(0, 0.5217391, 0.9836956)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dtori"]
+gradient = SubResource("Gradient_2cqlp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_brg6e"]
+emission_shape_scale = Vector3(0.2, 0.2, 0.2)
+gravity = Vector3(0, 2, 0)
+color_ramp = SubResource("GradientTexture1D_dtori")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ihns6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkjnv"]
+render_priority = -1
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.021360619, 0.115711145, 0.3423197, 1)
+albedo_texture = ExtResource("1_r0g4i")
+emission = Color(1, 0.7412816, 0.13687286, 1)
+emission_energy_multiplier = 1.23
+billboard_mode = 1
+
+[node name="torch fire" type="Node3D" unique_id=43142254]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1365099675]
+material_override = SubResource("StandardMaterial3D_d4yuc")
+process_material = SubResource("ParticleProcessMaterial_brg6e")
+draw_pass_1 = SubResource("QuadMesh_ihns6")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=1575715289]
+material_override = SubResource("StandardMaterial3D_kkjnv")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_brg6e")
+draw_pass_1 = SubResource("QuadMesh_ihns6")
