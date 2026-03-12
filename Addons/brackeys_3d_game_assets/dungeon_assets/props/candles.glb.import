@@ -41,8 +41,8 @@ _subresources={
 "materials": {
 "DungeonMat": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Addons/brackeys_3d_game_assets/dungeon_assets/props/prop_material.tres",
-"use_external/path": "uid://cbp4r13whnb8"
+"use_external/fallback_path": "res://Addons/brackeys_3d_game_assets/dungeon_assets/building/material.tres",
+"use_external/path": "uid://ynqjtc01ytsk"
 }
 }
 }

@@ -43,7 +43,9 @@ process_material = SubResource("ParticleProcessMaterial_brg6e")
 draw_pass_1 = SubResource("QuadMesh_ihns6")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=1575715289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.054, 0)
 material_override = SubResource("StandardMaterial3D_kkjnv")
-lifetime = 3.0
+amount = 6
+lifetime = 2.4099999999999997
 process_material = SubResource("ParticleProcessMaterial_brg6e")
 draw_pass_1 = SubResource("QuadMesh_ihns6")
