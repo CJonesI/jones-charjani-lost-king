@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Addons/proto_controller/proto_controller.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bum51ikm85jqf" path="res://Addons/proto_controller/proto_controller.gd" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://yrn7pajwboka" path="res://Scene/stone_floor.tscn" id="3_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://cx3e1uqgj26wj" path="res://Addons/brackeys_3d_game_assets/sky_background/autumn_field_puresky_4k.hdr" id="3_vaj68"]
 [ext_resource type="PackedScene" uid="uid://dm7n2tobfgl06" path="res://Scene/celiling.tscn" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://hvrc2cemnjl6" path="res://Scene/table.tscn" id="4_iotsf"]
 [ext_resource type="PackedScene" uid="uid://d3hsv1mi0xriy" path="res://Scene/barrel.tscn" id="4_vef74"]
@@ -20,10 +21,41 @@
 [ext_resource type="PackedScene" uid="uid://b4m1jk3gir8mj" path="res://Addons/sword.glb" id="14_215e1"]
 [ext_resource type="PackedScene" uid="uid://cy737514jf7ha" path="res://Scene/torch_fire.tscn" id="14_boyg6"]
 [ext_resource type="PackedScene" uid="uid://diysoxuww1crl" path="res://Scene/closed_door.tscn" id="14_rvswv"]
-[ext_resource type="PackedScene" uid="uid://b18j41yimnh84" path="res://Scene/half_wall.tscn" id="15_boyg6"]
 [ext_resource type="PackedScene" uid="uid://dm8f6npm4x47m" path="res://Scene/cracked_wall.tscn" id="18_e36ub"]
 [ext_resource type="PackedScene" uid="uid://0vjmb50b5r7o" path="res://Scene/closed_window.tscn" id="19_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://c1lao51umcxa6" path="res://Scene/pillar.tscn" id="20_xa8c5"]
+[ext_resource type="PackedScene" uid="uid://d0ph0slqy4dku" path="res://Scene/arched_window_wall.tscn" id="21_i2p71"]
+[ext_resource type="PackedScene" uid="uid://rp5ffu7a4sgc" path="res://Scene/coin_stack.tscn" id="23_xa8c5"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_i2p71"]
+panorama = ExtResource("3_vaj68")
+
+[sub_resource type="Sky" id="Sky_xa8c5"]
+resource_local_to_scene = true
+sky_material = SubResource("PanoramaSkyMaterial_i2p71")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_5b14r"]
+background_mode = 2
+background_color = Color(0.58798194, 0.7557073, 0.79700387, 1)
+background_energy_multiplier = 2.24
+sky = SubResource("Sky_xa8c5")
+sky_custom_fov = 26.7
+ambient_light_source = 1
+reflected_light_source = 2
+tonemap_exposure = 0.75
+tonemap_white = 2.18
+ssr_enabled = true
+ssr_max_steps = 63
+glow_intensity = 0.46
+fog_mode = 1
+fog_light_energy = 0.0
+fog_density = 1.0
+volumetric_fog_density = 0.0
+adjustment_enabled = true
+adjustment_brightness = 0.92
+adjustment_contrast = 1.005
+adjustment_saturation = 0.99
 
 [node name="Game" type="Node3D" unique_id=1413464218]
 
@@ -72,21 +104,13 @@ spot_range = 5.56693
 spot_angle = 39.374996
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Setting" unique_id=215848764]
+environment = SubResource("Environment_5b14r")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Setting/WorldEnvironment" unique_id=1698686760]
-transform = Transform3D(-0.33538142, -0.49553502, 0.8012267, -0.6391912, 0.74446857, 0.192876, -0.692065, -0.44744998, -0.5664225, -3, 36, 42)
+transform = Transform3D(-0.92549586, -0.048565216, -0.37563163, -0.26271537, 0.7967036, 0.54428303, 0.27283373, 0.60241556, -0.75010455, -3, 24, 42)
 light_color = Color(0.47196734, 0.49196875, 0.49237126, 1)
-light_energy = 5.316
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Setting/WorldEnvironment" unique_id=1998063101]
-transform = Transform3D(-0.87549824, 0, -0.48322135, 0, 1, 0, 0.48322135, 0, -0.87549824, 86.436966, 9.130054, 3.5944176)
-light_energy = 4.579
-omni_range = 30.429758
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Setting/WorldEnvironment" unique_id=1557818800]
-transform = Transform3D(-0.87549824, 0, -0.48322135, 0, 1, 0, 0.48322135, 0, -0.87549824, -57.420326, 1.3836832, 86.912796)
-light_energy = 4.789
-omni_range = 26.0
+light_energy = 3.527
+light_indirect_energy = 2.474
 
 [node name="Map" type="CSGCombiner3D" parent="Setting" unique_id=423185559]
 visible = false
@@ -258,7 +282,7 @@ transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -2, 60.999992)
 
 [node name="Chest" parent="Setting/Props" unique_id=461915953 instance=ExtResource("5_hve3p")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 101, 7, 28)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 97, 7, 28)
 
 [node name="Barrel2" parent="Setting/Props" unique_id=824078895 instance=ExtResource("4_vef74")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, -2, 61)
@@ -4354,9 +4378,6 @@ transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.
 [node name="Stone Floor778" parent="Setting/Outside ground" unique_id=620655536 instance=ExtResource("3_fc0e3")]
 transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.87549824, -100.41924, -2, -21.359207)
 
-[node name="Stone Floor779" parent="Setting/Outside ground" unique_id=340574010 instance=ExtResource("3_fc0e3")]
-transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.87549824, -103.921234, -2, -23.292084)
-
 [node name="Stone Floor805" parent="Setting/Outside ground" unique_id=2007618158 instance=ExtResource("3_fc0e3")]
 transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.87549824, -58.150997, -2, -15.162822)
 
@@ -4505,16 +4526,16 @@ transform = Transform3D(-1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, -1, -8
 transform = Transform3D(-1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, -1.0000001, -87, 10, 110)
 
 [node name="Corner Wall9" parent="Setting/Outside Wall" unique_id=1685479344 instance=ExtResource("6_ryrav")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 105, -2, -14)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 105, -2, -15)
 
 [node name="Corner Wall10" parent="Setting/Outside Wall" unique_id=1412662768 instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, 105, 2, -14)
+transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, 105, 2, -15)
 
 [node name="Corner Wall11" parent="Setting/Outside Wall" unique_id=323984288 instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, 105, 6, -14)
+transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, 105, 6, -15)
 
 [node name="Corner Wall12" parent="Setting/Outside Wall" unique_id=1274923612 instance=ExtResource("6_ryrav")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 105, 10, -14)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 105, 10, -15)
 
 [node name="Corner Wall13" parent="Setting/Outside Wall" unique_id=656445657 instance=ExtResource("6_ryrav")]
 transform = Transform3D(-8.940697e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, -8.940697e-08, 105, -2, 110)
@@ -6991,36 +7012,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97, -2, 23)
 [node name="wood floor100" parent="Setting/Guild Building" unique_id=415625032 instance=ExtResource("5_7jktm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97, -2, 27)
 
-[node name="wood floor101" parent="Setting/Guild Building" unique_id=2118995800 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, -2, -9)
-
-[node name="wood floor102" parent="Setting/Guild Building" unique_id=1894155201 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, -2, -5)
-
-[node name="wood floor103" parent="Setting/Guild Building" unique_id=745401101 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, -2, -1)
-
-[node name="wood floor104" parent="Setting/Guild Building" unique_id=1054876274 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, -2, 3)
-
-[node name="wood floor105" parent="Setting/Guild Building" unique_id=925236475 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, -2, 7)
-
-[node name="wood floor106" parent="Setting/Guild Building" unique_id=1310728303 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, -2, 11)
-
-[node name="wood floor107" parent="Setting/Guild Building" unique_id=1819516046 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, -2, 15)
-
-[node name="wood floor108" parent="Setting/Guild Building" unique_id=623799619 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, -2, 19)
-
-[node name="wood floor109" parent="Setting/Guild Building" unique_id=18606138 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, -2, 23)
-
-[node name="wood floor110" parent="Setting/Guild Building" unique_id=1688111412 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, -2, 27)
-
 [node name="wood floor111" parent="Setting/Guild Building" unique_id=1748368077 instance=ExtResource("5_7jktm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 7, -9)
 
@@ -7077,36 +7068,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97, 7, 23)
 
 [node name="wood floor130" parent="Setting/Guild Building" unique_id=822509167 instance=ExtResource("5_7jktm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97, 7, 27)
-
-[node name="wood floor131" parent="Setting/Guild Building" unique_id=571666795 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 7, -9)
-
-[node name="wood floor132" parent="Setting/Guild Building" unique_id=31128313 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 7, -5)
-
-[node name="wood floor133" parent="Setting/Guild Building" unique_id=727727645 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 7, -1)
-
-[node name="wood floor134" parent="Setting/Guild Building" unique_id=1901371053 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 7, 3)
-
-[node name="wood floor135" parent="Setting/Guild Building" unique_id=905400452 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 7, 7)
-
-[node name="wood floor136" parent="Setting/Guild Building" unique_id=652228549 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 7, 11)
-
-[node name="wood floor137" parent="Setting/Guild Building" unique_id=1092339582 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 7, 15)
-
-[node name="wood floor138" parent="Setting/Guild Building" unique_id=894117031 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 7, 19)
-
-[node name="wood floor139" parent="Setting/Guild Building" unique_id=1232319706 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 7, 23)
-
-[node name="wood floor140" parent="Setting/Guild Building" unique_id=548279112 instance=ExtResource("5_7jktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101, 7, 27)
 
 [node name="wood floor142" parent="Setting/Guild Building" unique_id=971288689 instance=ExtResource("5_7jktm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61, 7, 27)
@@ -7190,34 +7151,34 @@ transform = Transform3D(-1, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, -1, 59
 transform = Transform3D(-1, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, -1, 59, 14, 29)
 
 [node name="Corner Wall47" parent="Setting/Guild Building" unique_id=119818910 instance=ExtResource("6_ryrav")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 102, -2, -11)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 99, -2, -11)
 
 [node name="Corner Wall48" parent="Setting/Guild Building" unique_id=1392823924 instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, 102, 2, -11)
+transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, 99, 2, -11)
 
 [node name="Corner Wall49" parent="Setting/Guild Building" unique_id=1040611125 instance=ExtResource("6_ryrav")]
-transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, 102, 6, -11)
+transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, 99, 6, -11)
 
 [node name="Corner Wall50" parent="Setting/Guild Building" unique_id=509259558 instance=ExtResource("6_ryrav")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 102, 10, -11)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 99, 10, -11)
 
 [node name="Corner Wall51" parent="Setting/Guild Building" unique_id=822469112 instance=ExtResource("6_ryrav")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 102, 14, -11)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 99, 14, -11)
 
 [node name="Corner Wall52" parent="Setting/Guild Building" unique_id=1867491680 instance=ExtResource("6_ryrav")]
-transform = Transform3D(-2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, -2.9802322e-08, 102, -2, 29)
+transform = Transform3D(-2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, -2.9802322e-08, 99, -2, 29)
 
 [node name="Corner Wall53" parent="Setting/Guild Building" unique_id=427343728 instance=ExtResource("6_ryrav")]
-transform = Transform3D(5.9604645e-08, 0, -1, 0, 1, 0, 1, 0, 5.9604645e-08, 102, 2, 29)
+transform = Transform3D(5.9604645e-08, 0, -1, 0, 1, 0, 1, 0, 5.9604645e-08, 99, 2, 29)
 
 [node name="Corner Wall54" parent="Setting/Guild Building" unique_id=597573712 instance=ExtResource("6_ryrav")]
-transform = Transform3D(5.9604645e-08, 0, -1, 0, 1, 0, 1, 0, 5.9604645e-08, 102, 6, 29)
+transform = Transform3D(5.9604645e-08, 0, -1, 0, 1, 0, 1, 0, 5.9604645e-08, 99, 6, 29)
 
 [node name="Corner Wall55" parent="Setting/Guild Building" unique_id=1802939444 instance=ExtResource("6_ryrav")]
-transform = Transform3D(-2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, -2.9802322e-08, 102, 10, 29)
+transform = Transform3D(-2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, -2.9802322e-08, 99, 10, 29)
 
 [node name="Corner Wall56" parent="Setting/Guild Building" unique_id=593197516 instance=ExtResource("6_ryrav")]
-transform = Transform3D(-2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, -2.9802322e-08, 102, 14, 29)
+transform = Transform3D(-2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, -2.9802322e-08, 99, 14, 29)
 
 [node name="Wall768" parent="Setting/Guild Building" unique_id=212521291 instance=ExtResource("7_eow3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 14, -11)
@@ -7236,9 +7197,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 2, -11)
 
 [node name="Wall774" parent="Setting/Guild Building" unique_id=2037598760 instance=ExtResource("7_eow3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, -2, -11)
-
-[node name="Wall775" parent="Setting/Guild Building" unique_id=1155576495 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 2, -11)
 
 [node name="Wall776" parent="Setting/Guild Building" unique_id=1789517038 instance=ExtResource("7_eow3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 6, -11)
@@ -7291,9 +7249,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 10, -11)
 [node name="Wall786" parent="Setting/Guild Building" unique_id=1829339403 instance=ExtResource("7_eow3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, -2, -11)
 
-[node name="Wall787" parent="Setting/Guild Building" unique_id=690010686 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 2, -11)
-
 [node name="Wall788" parent="Setting/Guild Building" unique_id=584378650 instance=ExtResource("7_eow3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91, -2, -11)
 
@@ -7337,169 +7292,151 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 14, -11)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 14, -11)
 
 [node name="Wall800" parent="Setting/Guild Building" unique_id=45185310 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, -2, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, -2, -11)
 
 [node name="Wall801" parent="Setting/Guild Building" unique_id=1290154780 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 2, -11)
-
-[node name="Wall802" parent="Setting/Guild Building" unique_id=1950364988 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, -2, -11)
-
-[node name="Wall803" parent="Setting/Guild Building" unique_id=1584685888 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 2, -11)
-
-[node name="Wall804" parent="Setting/Guild Building" unique_id=2034662720 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 6, -11)
-
-[node name="Wall805" parent="Setting/Guild Building" unique_id=1319392254 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 10, -11)
-
-[node name="Wall806" parent="Setting/Guild Building" unique_id=382975436 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 14, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 2, -11)
 
 [node name="Wall11" parent="Setting/Guild Building" unique_id=2010586280 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 6, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 6, -11)
 
 [node name="Wall12" parent="Setting/Guild Building" unique_id=1829492152 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 10, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 10, -11)
 
 [node name="Wall15" parent="Setting/Guild Building" unique_id=1843169565 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 14, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 14, -11)
 
 [node name="Wall807" parent="Setting/Guild Building" unique_id=181259931 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, -2, -7)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, -2, -7)
 
 [node name="Wall808" parent="Setting/Guild Building" unique_id=1484703235 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 2, -7)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 2, -7)
 
 [node name="Wall809" parent="Setting/Guild Building" unique_id=1798527831 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, -2, -3)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, -2, -3)
 
 [node name="Wall810" parent="Setting/Guild Building" unique_id=388496567 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 2, -3)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 2, -3)
 
 [node name="Wall811" parent="Setting/Guild Building" unique_id=386125462 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 6, -3)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 6, -3)
 
 [node name="Wall812" parent="Setting/Guild Building" unique_id=1694592858 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 10, -3)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 10, -3)
 
 [node name="Wall813" parent="Setting/Guild Building" unique_id=884459167 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 14, -3)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 14, -3)
 
 [node name="Wall13" parent="Setting/Guild Building" unique_id=1366459008 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 6, -7)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 6, -7)
 
 [node name="Wall14" parent="Setting/Guild Building" unique_id=473803532 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 10, -7)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 10, -7)
 
 [node name="Wall16" parent="Setting/Guild Building" unique_id=87838118 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 14, -7)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 14, -7)
 
 [node name="Wall814" parent="Setting/Guild Building" unique_id=1412920226 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, -2, 1)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, -2, 1)
 
 [node name="Wall815" parent="Setting/Guild Building" unique_id=1848861078 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 2, 1)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 2, 1)
 
 [node name="Wall816" parent="Setting/Guild Building" unique_id=1559843090 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, -2, 5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, -2, 5)
 
 [node name="Wall817" parent="Setting/Guild Building" unique_id=420913433 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 2, 5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 2, 5)
 
 [node name="Wall818" parent="Setting/Guild Building" unique_id=1794110446 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 6, 5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 6, 5)
 
 [node name="Wall819" parent="Setting/Guild Building" unique_id=534073496 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 10, 5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 10, 5)
 
 [node name="Wall820" parent="Setting/Guild Building" unique_id=664798142 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 14, 5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 14, 5)
 
 [node name="Wall17" parent="Setting/Guild Building" unique_id=1505204998 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 6, 1)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 6, 1)
 
 [node name="Wall18" parent="Setting/Guild Building" unique_id=459450237 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 10, 1)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 10, 1)
 
 [node name="Wall19" parent="Setting/Guild Building" unique_id=443411402 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 14, 1)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 14, 1)
 
 [node name="Wall821" parent="Setting/Guild Building" unique_id=336132276 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, -2, 9)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, -2, 9)
 
 [node name="Wall822" parent="Setting/Guild Building" unique_id=658339708 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 2, 9)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 2, 9)
 
 [node name="Wall823" parent="Setting/Guild Building" unique_id=651276508 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, -2, 13)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, -2, 13)
 
 [node name="Wall824" parent="Setting/Guild Building" unique_id=739658338 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 2, 13)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 2, 13)
 
 [node name="Wall825" parent="Setting/Guild Building" unique_id=98078342 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 6, 13)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 6, 13)
 
 [node name="Wall826" parent="Setting/Guild Building" unique_id=548918085 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 10, 13)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 10, 13)
 
 [node name="Wall827" parent="Setting/Guild Building" unique_id=1100943980 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 14, 13)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 14, 13)
 
 [node name="Wall20" parent="Setting/Guild Building" unique_id=152816357 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 6, 9)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 6, 9)
 
 [node name="Wall21" parent="Setting/Guild Building" unique_id=1036799930 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 10, 9)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 10, 9)
 
 [node name="Wall22" parent="Setting/Guild Building" unique_id=662567934 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 14, 9)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 14, 9)
 
 [node name="Wall828" parent="Setting/Guild Building" unique_id=1412500905 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, -2, 17)
-
-[node name="Wall829" parent="Setting/Guild Building" unique_id=1539039896 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 2, 17)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, -2, 17)
 
 [node name="Wall830" parent="Setting/Guild Building" unique_id=1188364382 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, -2, 21)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, -2, 21)
 
 [node name="Wall831" parent="Setting/Guild Building" unique_id=484851292 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 2, 21)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 2, 21)
 
 [node name="Wall832" parent="Setting/Guild Building" unique_id=1453396324 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 6, 21)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 6, 21)
 
 [node name="Wall833" parent="Setting/Guild Building" unique_id=1357912889 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 10, 21)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 10, 21)
 
 [node name="Wall834" parent="Setting/Guild Building" unique_id=1289836181 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 14, 21)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 14, 21)
 
 [node name="Wall23" parent="Setting/Guild Building" unique_id=1989246264 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 6, 17)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 6, 17)
 
 [node name="Wall24" parent="Setting/Guild Building" unique_id=1346468155 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 10, 17)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 10, 17)
 
 [node name="Wall25" parent="Setting/Guild Building" unique_id=1305958738 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 14, 17)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 14, 17)
 
 [node name="Wall835" parent="Setting/Guild Building" unique_id=311873718 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, -2, 25)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, -2, 25)
 
 [node name="Wall836" parent="Setting/Guild Building" unique_id=1059154210 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 2, 25)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 2, 25)
 
 [node name="Wall26" parent="Setting/Guild Building" unique_id=1089461119 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 6, 25)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 6, 25)
 
 [node name="Wall27" parent="Setting/Guild Building" unique_id=1224848077 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 10, 25)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 10, 25)
 
 [node name="Wall28" parent="Setting/Guild Building" unique_id=974984257 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 102, 14, 25)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 14, 25)
 
 [node name="Wall796" parent="Setting/Guild Building" unique_id=673934989 instance=ExtResource("7_eow3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 75, 14, 29)
@@ -7509,9 +7446,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 71, 
 
 [node name="Wall798" parent="Setting/Guild Building" unique_id=1705029731 instance=ExtResource("7_eow3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 71, 6, 29)
-
-[node name="Wall799" parent="Setting/Guild Building" unique_id=135085079 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 71, 10, 29)
 
 [node name="Wall837" parent="Setting/Guild Building" unique_id=1726651963 instance=ExtResource("7_eow3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 67, -2, 29)
@@ -7594,9 +7528,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 79, 
 [node name="Wall34" parent="Setting/Guild Building" unique_id=1985923998 instance=ExtResource("7_eow3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 83, 6, 29)
 
-[node name="Wall35" parent="Setting/Guild Building" unique_id=1865924922 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 83, 10, 29)
-
 [node name="Shelved wall4" parent="Setting/Guild Building" unique_id=227768465 instance=ExtResource("10_hve3p")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 87.00001, -2, 29.000002)
 
@@ -7627,26 +7558,8 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 95, 
 [node name="Wall39" parent="Setting/Guild Building" unique_id=1069977846 instance=ExtResource("7_eow3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 95, 6, 29)
 
-[node name="Wall40" parent="Setting/Guild Building" unique_id=317552068 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 95, 10, 29)
-
 [node name="Wall41" parent="Setting/Guild Building" unique_id=79485967 instance=ExtResource("7_eow3j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 95, 14, 29)
-
-[node name="Wall863" parent="Setting/Guild Building" unique_id=1679376692 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 98, -2, 29)
-
-[node name="Wall864" parent="Setting/Guild Building" unique_id=400666035 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 98, 2, 29)
-
-[node name="Wall42" parent="Setting/Guild Building" unique_id=1476241501 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 98, 6, 29)
-
-[node name="Wall43" parent="Setting/Guild Building" unique_id=2011957889 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 98, 10, 29)
-
-[node name="Wall44" parent="Setting/Guild Building" unique_id=1119810566 instance=ExtResource("7_eow3j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 98, 14, 29)
 
 [node name="Wall865" parent="Setting/Guild Building" unique_id=18888682 instance=ExtResource("7_eow3j")]
 transform = Transform3D(8.940697e-08, 0, -1, 0, 1, 0, 1, 0, 8.940697e-08, 59, -2, 25)
@@ -7665,9 +7578,6 @@ transform = Transform3D(8.940697e-08, 0, -1, 0, 1, 0, 1, 0, 8.940697e-08, 59, 14
 
 [node name="Wall867" parent="Setting/Guild Building" unique_id=480644560 instance=ExtResource("7_eow3j")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 59, -2, 21)
-
-[node name="Wall868" parent="Setting/Guild Building" unique_id=410342337 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 59, 2, 21)
 
 [node name="Wall48" parent="Setting/Guild Building" unique_id=1434065142 instance=ExtResource("7_eow3j")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 59, 6, 21)
@@ -7786,7 +7696,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.90587, 0, -10.71191)
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Guild Building/Torch" unique_id=529476675]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40854597, 0.31673622)
 light_color = Color(1, 0.85, 0.85, 1)
-light_energy = 1.316
+light_energy = 1.948
 
 [node name="torch fire" parent="Setting/Guild Building/Torch" unique_id=43142254 instance=ExtResource("14_boyg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053627014, 0.32488763, 0.27543068)
@@ -7797,7 +7707,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.28517, -0.061631083, -10.5
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Guild Building/Torch2" unique_id=1808578088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40854597, 0.31673622)
 light_color = Color(1, 0.85, 0.85, 1)
-light_energy = 1.316
+light_energy = 1.632
 
 [node name="torch fire" parent="Setting/Guild Building/Torch2" unique_id=835453192 instance=ExtResource("14_boyg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053627014, 0.32488763, 0.27543068)
@@ -7808,7 +7718,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.98383, -0.16210586, -10.58
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Guild Building/Torch3" unique_id=1262346469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40854597, 0.31673622)
 light_color = Color(1, 0.85, 0.85, 1)
-light_energy = 1.316
+light_energy = 2.263
 
 [node name="torch fire" parent="Setting/Guild Building/Torch3" unique_id=1650679395 instance=ExtResource("14_boyg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053627014, 0.32488763, 0.27543068)
@@ -7819,16 +7729,16 @@ transform = Transform3D(-0.9991761, 0, 0.040585145, 0, 1, 0, -0.040585145, 0, -0
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Guild Building/Torch4" unique_id=1967915177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40854597, 0.31673622)
 light_color = Color(1, 0.85, 0.85, 1)
-light_energy = 1.316
+light_energy = 2.684
 
 [node name="torch fire" parent="Setting/Guild Building/Torch4" unique_id=1696845936 instance=ExtResource("14_boyg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053627014, 0.32488763, 0.27543068)
 
 [node name="Barrel" parent="Setting/Guild Building" unique_id=2016491514 instance=ExtResource("4_vef74")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.74162, 7.0595703, -9.925835)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.74162, 7.0595703, -9.925835)
 
 [node name="Barrel2" parent="Setting/Guild Building" unique_id=31242032 instance=ExtResource("4_vef74")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.11698, 7.0595703, -7.3035507)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.11698, 7.0595703, -7.3035507)
 
 [node name="Torch5" parent="Setting/Guild Building" unique_id=2029116049 instance=ExtResource("13_e8heu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 76.98242, 0.06116867, 28.697933)
@@ -7836,7 +7746,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 76.9
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Guild Building/Torch5" unique_id=736364361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40854597, 0.31673622)
 light_color = Color(1, 0.85, 0.85, 1)
-light_energy = 1.316
+light_energy = 2.684
 
 [node name="Torch" parent="Setting/Guild Building/Torch5" unique_id=1450715657 instance=ExtResource("13_e8heu")]
 transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, -13.779358, -0.14042068, 0.038022995)
@@ -7844,19 +7754,16 @@ transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.965
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Guild Building/Torch5/Torch" unique_id=536095551]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40854597, 0.31673622)
 light_color = Color(1, 0.85, 0.85, 1)
-light_energy = 1.316
+light_energy = 4.79
 
 [node name="torch fire" parent="Setting/Guild Building/Torch5/Torch" unique_id=1993715577 instance=ExtResource("14_boyg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.053627014, 0.32488763, 0.27543068)
 
 [node name="Wall74" parent="Setting/Guild Building" unique_id=1187665178 instance=ExtResource("7_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.641655, 7.0595703, 12.343994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.09963, 7.0595703, 12.343994)
 
 [node name="Closed Door" parent="Setting/Guild Building" unique_id=1221126151 instance=ExtResource("14_rvswv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.51937, 7.0595703, 12.36015)
-
-[node name="Half wall" parent="Setting/Guild Building" unique_id=296316707 instance=ExtResource("15_boyg6")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 91.647156, 7.0595703, 12.436413)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.97735, 7.0595703, 12.36015)
 
 [node name="Shelved wall5" parent="Setting/Guild Building" unique_id=1583255253 instance=ExtResource("10_hve3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, -2, -11)
@@ -7956,6 +7863,96 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 7, 21)
 
 [node name="Wall84" parent="Setting/Guild Building" unique_id=866732230 instance=ExtResource("7_eow3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 7, 21)
+
+[node name="Arched window wall" parent="Setting/Guild Building" unique_id=1619239777 instance=ExtResource("21_i2p71")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 59, 2, 21)
+
+[node name="Arched window wall2" parent="Setting/Guild Building" unique_id=176622872 instance=ExtResource("21_i2p71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 10, 29)
+
+[node name="Arched window wall3" parent="Setting/Guild Building" unique_id=259187632 instance=ExtResource("21_i2p71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 10, 29)
+
+[node name="Arched window wall4" parent="Setting/Guild Building" unique_id=213088011 instance=ExtResource("21_i2p71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 10, 29)
+
+[node name="Closed Window" parent="Setting/Guild Building" unique_id=1070350726 instance=ExtResource("19_hb5m1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 99, 2, 17)
+
+[node name="Table" parent="Setting/Guild Building" unique_id=205742389 instance=ExtResource("4_iotsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -2, 13)
+
+[node name="Table2" parent="Setting/Guild Building" unique_id=876040435 instance=ExtResource("4_iotsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, -2, 13)
+
+[node name="Table3" parent="Setting/Guild Building" unique_id=852307994 instance=ExtResource("4_iotsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -2, 15)
+
+[node name="Table4" parent="Setting/Guild Building" unique_id=839251626 instance=ExtResource("4_iotsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, -2, 15)
+
+[node name="Food plate" parent="Setting/Guild Building" unique_id=931496502 instance=ExtResource("10_i2p71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -1, 15)
+
+[node name="Coin stack" parent="Setting/Guild Building" unique_id=704224849 instance=ExtResource("23_xa8c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.61654, -1.9404292, 27.65155)
+
+[node name="Coin stack2" parent="Setting/Guild Building" unique_id=143721295 instance=ExtResource("23_xa8c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.9676, -1.9404297, 27.85807)
+
+[node name="Coin stack3" parent="Setting/Guild Building" unique_id=688945560 instance=ExtResource("23_xa8c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.18761, -1.9404297, 27.620476)
+
+[node name="Keg" parent="Setting/Guild Building" unique_id=1256580775 instance=ExtResource("13_lc2xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, -2, 1)
+
+[node name="Table5" parent="Setting/Guild Building" unique_id=2124401318 instance=ExtResource("4_iotsf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 84, -2, 13)
+
+[node name="Table6" parent="Setting/Guild Building" unique_id=1540980000 instance=ExtResource("4_iotsf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 82, -2, 13)
+
+[node name="Table7" parent="Setting/Guild Building" unique_id=1054465013 instance=ExtResource("4_iotsf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 80, -2, 13)
+
+[node name="Crates" parent="Setting/Guild Building" unique_id=1235609858 instance=ExtResource("8_f1jbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, -2, -10)
+
+[node name="Coin stack4" parent="Setting/Guild Building" unique_id=790991712 instance=ExtResource("23_xa8c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, -2, -6)
+
+[node name="Chest" parent="Setting/Guild Building" unique_id=1547177350 instance=ExtResource("5_hve3p")]
+transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 95, 7, 28)
+
+[node name="Chest2" parent="Setting/Guild Building" unique_id=1367889518 instance=ExtResource("5_hve3p")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 93, 7, 28)
+
+[node name="Coin stack5" parent="Setting/Guild Building" unique_id=409241496 instance=ExtResource("23_xa8c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 7, 28)
+
+[node name="Coin stack6" parent="Setting/Guild Building" unique_id=492937989 instance=ExtResource("23_xa8c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91, 7, 28)
+
+[node name="Coin stack7" parent="Setting/Guild Building" unique_id=133992428 instance=ExtResource("23_xa8c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89, 7, 28)
+
+[node name="Coin stack8" parent="Setting/Guild Building" unique_id=544959179 instance=ExtResource("23_xa8c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.460236, 7.6328707, 28)
+
+[node name="Coin stack9" parent="Setting/Guild Building" unique_id=1781205410 instance=ExtResource("23_xa8c5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.41754, 7.6023245, 28.057793)
+
+[node name="Chair" parent="Setting/Guild Building" unique_id=567754098 instance=ExtResource("5_lc2xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.30822, -1.9404297, 13.0649)
+
+[node name="Chair2" parent="Setting/Guild Building" unique_id=1367873379 instance=ExtResource("5_lc2xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.36074, -1.9404297, 14.83711)
+
+[node name="Arched window wall5" parent="Setting/Guild Building" unique_id=268014033 instance=ExtResource("21_i2p71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 2, -11)
+
+[node name="Arched window wall6" parent="Setting/Guild Building" unique_id=570129288 instance=ExtResource("21_i2p71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 2, -11)
 
 [node name="Pub" type="Node3D" parent="Setting" unique_id=438020132]
 
@@ -8235,7 +8232,7 @@ transform = Transform3D(-0.87549835, 0, 0.48322114, 0, 1, 0, -0.48322114, 0, -0.
 [node name="Chair2" parent="Setting/Pub" unique_id=1392329854 instance=ExtResource("5_lc2xo")]
 transform = Transform3D(0.8754983, 0, -0.48322123, 0, 1, 0, 0.48322123, 0, 0.8754983, 87.808624, -1.9257526, -28.519836)
 
-[node name="Keg" parent="Setting/Pub" unique_id=1256580775 instance=ExtResource("13_lc2xo")]
+[node name="Keg" parent="Setting/Pub" unique_id=1436047416 instance=ExtResource("13_lc2xo")]
 transform = Transform3D(0.8754983, 0, -0.48322123, 0, 1, 0, 0.48322123, 0, 0.8754983, 95.00383, -2.0612028, -41.68165)
 
 [node name="Keg2" parent="Setting/Pub" unique_id=1579025450 instance=ExtResource("13_lc2xo")]
@@ -8269,9 +8266,9 @@ transform = Transform3D(0.8754983, 0, -0.48322123, 0, 1, 0, 0.48322123, 0, 0.875
 transform = Transform3D(0.45282394, 0, 0.89160013, 0, 1, 0, -0.89160013, 0, 0.45282394, 53.828117, 0.608269, -26.8056)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Pub/Torch" unique_id=1797768478]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -0.0073013306, 0.36434758, 0.34767532)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -0.0059661865, 0.36434758, 0.30894852)
 light_color = Color(0.73, 0.39079335, 0.2336, 1)
-light_energy = 0.474
+light_energy = 1.728
 omni_range = 17.145
 
 [node name="torch fire" parent="Setting/Pub/Torch" unique_id=1833294110 instance=ExtResource("14_boyg6")]
@@ -8281,9 +8278,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03290558, 0.46363854, 0.395
 transform = Transform3D(0.48322138, 0, 0.87549824, 0, 1, 0, -0.87549824, 0, 0.48322138, 56.05677, 0.33708596, -31.267365)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Pub/Torch2" unique_id=1921634333]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020088196, 0.36434758, 0.3475151)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020088196, 0.36434758, 0.40131378)
 light_color = Color(0.73, 0.39079335, 0.2336, 1)
-light_energy = 0.474
+light_energy = 2.579
 omni_range = 17.145
 
 [node name="torch fire" parent="Setting/Pub/Torch2" unique_id=607797728 instance=ExtResource("14_boyg6")]
@@ -8295,7 +8292,7 @@ transform = Transform3D(0.48322138, 0, 0.87549824, 0, 1, 0, -0.87549824, 0, 0.48
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Pub/Torch3" unique_id=976898363]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.060142517, 0.36434755, 0.3475151)
 light_color = Color(0.73, 0.39079335, 0.2336, 1)
-light_energy = 0.474
+light_energy = 1.948
 omni_range = 17.145
 
 [node name="torch fire" parent="Setting/Pub/Torch3" unique_id=2019539198 instance=ExtResource("14_boyg6")]
@@ -8305,9 +8302,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03290558, 0.46363854, 0.395
 transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.87549824, 60.307693, 0.28691134, -19.753628)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Pub/Torch4" unique_id=822249934]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011955261, 0.39653242, 0.34751892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04599762, 0.39653245, 0.54325867)
 light_color = Color(0.73, 0.39079335, 0.2336, 1)
-light_energy = 0.474
+light_energy = 0.895
 omni_range = 17.145
 
 [node name="torch fire" parent="Setting/Pub/Torch4" unique_id=1747080036 instance=ExtResource("14_boyg6")]
@@ -8319,7 +8316,7 @@ transform = Transform3D(0.46626332, 0, 0.8846461, 0, 1, 0, -0.8846461, 0, 0.4662
 [node name="OmniLight3D" type="OmniLight3D" parent="Setting/Pub/Torch5" unique_id=2041352822]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011955261, 0.39653242, 0.34751892)
 light_color = Color(0.73, 0.39079335, 0.2336, 1)
-light_energy = 0.474
+light_energy = 3.527
 omni_range = 17.145
 
 [node name="torch fire" parent="Setting/Pub/Torch5" unique_id=1769203200 instance=ExtResource("14_boyg6")]
@@ -8427,7 +8424,7 @@ transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.
 [node name="Cracked Wall" parent="Setting/Pub" unique_id=1498380079 instance=ExtResource("18_e36ub")]
 transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.87549824, 55.373344, -2, -22.178963)
 
-[node name="Closed Window" parent="Setting/Pub" unique_id=1070350726 instance=ExtResource("19_hb5m1")]
+[node name="Closed Window" parent="Setting/Pub" unique_id=912994357 instance=ExtResource("19_hb5m1")]
 transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.87549824, 55.373344, 2, -22.178963)
 
 [node name="Wall" parent="Setting/Pub" unique_id=370207928 instance=ExtResource("7_eow3j")]
@@ -8912,6 +8909,42 @@ transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.
 
 [node name="Celiling90" parent="Setting/Pub" unique_id=1953960511 instance=ExtResource("4_7jktm")]
 transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.87549824, 71.98476, 5, -56.414345)
+
+[node name="Torch6" parent="Setting/Pub" unique_id=1345053254 instance=ExtResource("13_e8heu")]
+transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.87549824, 69.33517, 0.28691134, -14.771018)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Setting/Pub/Torch6" unique_id=1339833472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04599762, 0.39653245, 0.54325867)
+light_color = Color(0.73, 0.39079335, 0.2336, 1)
+light_energy = 0.895
+omni_range = 17.145
+
+[node name="torch fire" parent="Setting/Pub/Torch6" unique_id=919533619 instance=ExtResource("14_boyg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12057495, 0.46363857, 0.40036774)
+
+[node name="Torch7" parent="Setting/Pub" unique_id=714841675 instance=ExtResource("13_e8heu")]
+transform = Transform3D(-0.87549824, 0, 0.48322135, 0, 1, 0, -0.48322135, 0, -0.87549824, 75.58233, 0.28691134, -11.322972)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Setting/Pub/Torch7" unique_id=24151632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04599762, 0.39653245, 0.54325867)
+light_color = Color(0.73, 0.39079335, 0.2336, 1)
+light_energy = 0.895
+omni_range = 17.145
+
+[node name="torch fire" parent="Setting/Pub/Torch7" unique_id=1230034370 instance=ExtResource("14_boyg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12057495, 0.46363857, 0.40036774)
+
+[node name="Torch8" parent="Setting/Pub" unique_id=460793633 instance=ExtResource("13_e8heu")]
+transform = Transform3D(0.019267142, 0, -0.9998144, 0, 1, 0, 0.9998144, 0, 0.019267142, 85.009, 0.28691134, -11.003291)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Setting/Pub/Torch8" unique_id=1800049101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04599762, 0.39653245, 0.54325867)
+light_color = Color(0.73, 0.39079335, 0.2336, 1)
+light_energy = 0.895
+omni_range = 17.145
+
+[node name="torch fire" parent="Setting/Pub/Torch8" unique_id=744622591 instance=ExtResource("14_boyg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12057495, 0.46363857, 0.40036774)
 
 [node name="sword" parent="Setting" unique_id=2111783375 instance=ExtResource("14_215e1")]
 transform = Transform3D(0.61907077, -0.61907065, 0.48322156, -0.7071067, -0.70710677, 0, 0.34168914, -0.34168908, -0.87549853, 57.033386, 2, -18.978329)
