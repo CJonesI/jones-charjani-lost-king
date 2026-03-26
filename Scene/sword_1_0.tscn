@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://b4m1jk3gir8mj" path="res://Addons/sword.glb" id="1_i4i08"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i4i08"]
-size = Vector3(1.1049805, 4.02594, 0.21289063)
+size = Vector3(1.2209473, 4.02594, 0.21289063)
 
 [node name="Sword 1_0" type="StaticBody3D" unique_id=798591516]
 
-[node name="sword" parent="." unique_id=2111783375 instance=ExtResource("1_i4i08")]
+[node name="sword" parent="." unique_id=1049420770 instance=ExtResource("1_i4i08")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1301450235]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052490234, 0.22445679, -0.0068359375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005493164, 0.22445679, -0.0068359375)
 shape = SubResource("BoxShape3D_i4i08")

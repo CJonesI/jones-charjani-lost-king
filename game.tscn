@@ -8946,8 +8946,8 @@ omni_range = 17.145
 [node name="torch fire" parent="Setting/Pub/Torch8" unique_id=744622591 instance=ExtResource("14_boyg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12057495, 0.46363857, 0.40036774)
 
-[node name="sword" parent="Setting" unique_id=2111783375 instance=ExtResource("14_215e1")]
+[node name="sword" parent="Setting" unique_id=1049420770 instance=ExtResource("14_215e1")]
 transform = Transform3D(0.61907077, -0.61907065, 0.48322156, -0.7071067, -0.70710677, 0, 0.34168914, -0.34168908, -0.87549853, 57.033386, 2, -18.978329)
 
-[node name="sword2" parent="Setting" unique_id=1532995290 instance=ExtResource("14_215e1")]
+[node name="sword2" parent="Setting" unique_id=1053959610 instance=ExtResource("14_215e1")]
 transform = Transform3D(-0.69335186, -0.72059953, 9.400897e-09, 0, -4.371139e-08, -1, 0.72059953, -0.69335186, 9.045424e-09, 58.903824, -1.4353197, -9.950484)
